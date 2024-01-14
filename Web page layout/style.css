@@ -183,3 +183,13 @@ input:nth-of-type(2):checked ~ section.buttons > label:nth-of-type(2) {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+#main_footer {
+  width: 960px;
+  margin: 0 auto;
+  margin-bottom: 10px;
+
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #000;
+  text-align: center;
+}
