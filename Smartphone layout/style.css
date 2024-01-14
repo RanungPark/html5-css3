@@ -118,3 +118,16 @@ a {
   border-left: 1px solid black;
   content: "";
 }
+
+#section_header {
+  padding: 20px;
+}
+
+#section_article {
+  padding: 10px;
+}
+#main_footer {
+  padding: 10px;
+  border-top: 1px solid #000;
+  text-align: center;
+}
