@@ -1,34 +1,39 @@
-#graph {
-  width: 610px;
-  border: 3px solid #000;
+* {
+  margin: 0;
+  padding: 0;
 }
-
-.bar {
-  width: 10px;
-  height: 50px;
-  background-color: orange;
-  margin: 5px;
-
-  transition: background-color 1s ease, width 5s linear 1s;
+body {
+  position: relative;
 }
-
-#graph:hover > .bar:nth-child(1) {
-  width: 100px;
-  background-color: red;
-}
-#graph:hover > .bar:nth-child(2) {
-  width: 300px;
-  background-color: blue;
-}
-#graph:hover > .bar:nth-child(3) {
-  width: 400px;
-  background-color: green;
-}
-#graph:hover > .bar:nth-child(4) {
+#box {
+  position: absolute;
   width: 200px;
-  background-color: yellow;
+  height: 200px;
+  border-radius: 100px;
+  text-align: center;
+  background: linear-gradient(#cb60b3 0%, #db36a4 100%);
+
+  animation: rint 2s linear none infinite alternate;
 }
-#graph:hover > .bar:nth-child(5) {
-  width: 400px;
-  background-color: pink;
+
+#box:hover {
+  animation-play-state: paused;
+}
+
+#box > h1 {
+  line-height: 200px;
+}
+
+@keyframes rint {
+  0% {
+    left: 0;
+    transform: rotate(0deg);
+  }
+  50% {
+    left: 500px;
+  }
+  100% {
+    left: 500px;
+    transform: rotate(360deg);
+  }
 }
