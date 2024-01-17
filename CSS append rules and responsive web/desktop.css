@@ -1,9 +1,18 @@
-html {
-  height: 100%;
-  background-color: black;
+@media screen {
+  html {
+    height: 100%;
+    background-color: black;
+  }
+  body {
+    color: white;
+    font-family: serif;
+  }
 }
 
-body {
-  color: white;
-  font-family: serif;
+@media print {
+  h1 {
+    text-align: center;
+    color: red;
+    font-family: sans-serif;
+  }
 }
