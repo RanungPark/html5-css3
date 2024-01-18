@@ -1,26 +1,38 @@
-@color: #ff0000;
-@hue: hue(@color);
-@saturation: saturation(@color);
-@lightness: lightness(@color);
-div {
-  height: 10px;
+.linearGradient(@start, @end){
+  background: @start;
+  background: -moz-linear-gradient(top, @start 0%, @end 100%);
+  background: -webkit-linear-gradient(top, @start 0%, @end 100%);
+  background: -o-linear-gradient(top, @start 0%, @end 100%);
+  background: -ms-linear-gradient(top, @start 0%, @end 100%);
+  background: linear-gradient(top, @start 0%, @end 100%);
 }
 
-div:nth-child(1) {
-  background-color: hsl(@hue, @saturation, @lightness);
+.button(@width, @height, @radius) {
+  width: @width;
+  height: @height;
+  line-height: @height;
+  text-align: center;
+  border-radius: @radius;
 }
-div:nth-child(2) {
-  background-color: hsl(@hue + 10, @saturation, @lightness);
-}
-div:nth-child(3) {
-  background-color: hsl(@hue + 20, @saturation, @lightness);
-}
-div:nth-child(4) {
-  background-color: hsl(@hue + 30, @saturation, @lightness);
-}
-div:nth-child(5) {
-  background-color: hsl(@hue + 40, @saturation, @lightness);
-}
-div:nth-child(6) {
-  background-color: hsl(@hue + 50, @saturation, @lightness);
+
+* { margin: 0; padding: 0; }
+
+div{
+  margin: 10px;
+  float: left;
+
+  &:nth-child(1){
+      .linearGradient(#0094FF, #004F89);
+      .button(200px, 100px, 10px);
+  }
+
+  &:nth-child(2){
+      .linearGradient(#0094FF + #CC0000, #004F89 + #CC0000);
+      .button(200px, 100px, 10px);
+  }
+
+  &:nth-child(3){
+      .linearGradient(#0094FF + #FF0000, #004F89 + #FF0000);
+      .button(200px, 100px, 10px);
+  }
 }
