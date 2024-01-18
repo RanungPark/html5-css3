@@ -1,0 +1,26 @@
+@color: #ff0000;
+@hue: hue(@color);
+@saturation: saturation(@color);
+@lightness: lightness(@color);
+div {
+  height: 10px;
+}
+
+div:nth-child(1) {
+  background-color: hsl(@hue, @saturation, @lightness);
+}
+div:nth-child(2) {
+  background-color: hsl(@hue + 10, @saturation, @lightness);
+}
+div:nth-child(3) {
+  background-color: hsl(@hue + 20, @saturation, @lightness);
+}
+div:nth-child(4) {
+  background-color: hsl(@hue + 30, @saturation, @lightness);
+}
+div:nth-child(5) {
+  background-color: hsl(@hue + 40, @saturation, @lightness);
+}
+div:nth-child(6) {
+  background-color: hsl(@hue + 50, @saturation, @lightness);
+}
