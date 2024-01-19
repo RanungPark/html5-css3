@@ -1,5 +1,5 @@
-@ColumnWidth: 60px;
-@GutterWidth: 20px;
+@ColumnWidth: 6.5%;
+@GutterWidth: 2%;
 
 .span(@column) {
   width: (@ColumnWidth * @column) + (@GutterWidth * (@column - 1));
@@ -11,23 +11,16 @@
 }
 .row {
   overflow: hidden;
-}
+  width: 100%;
 
-.span_1,
-.span_2,
-.span_3,
-.span_4,
-.span_5,
-.span_6,
-.span_7,
-.span_8,
-.span_9,
-.span_10,
-.span_11,
-.span_12 {
-  float: left;
-  margin-left: 10px;
-  margin-right: 10px;
+  [class*=span] {
+    float: left;
+    margin-left: @GutterWidth;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 }
 
 .span_1 {
