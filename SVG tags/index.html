@@ -5,29 +5,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>SVG With Rapael</title>
+  <link rel="stylesheet" href="style.css">
   <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="KoreaMapPathData.js"></script>
   <script src="raphael-min.js"></script>
-  <script>
-    $(document).ready(function () {
-      // 변수를 선업합니다.
-      var canvas = document.getElementById('canvas');
-      var paper = Raphael(canvas, 700, 400);
-
-      // 원을 생성합니다.
-      var rect = paper.rect(0, 0, 700, 300);
-      var circle = paper.circle(350, 150, 100);
-
-      // 색상 및 선을 지정합니다.
-      rect.attr('fill', 'red');
-
-      circle.attr('fill', 'orange');
-      circle.attr('stroke', 'black');
-    });
-  </script>
+  <script src="canvas.js"></script>
 </head>
 
 <body>
-  <div id="canvas"></div>
+  <header id="main_header">
+    <h1>Korea Map path Data</h1>
+  </header>
+  <section id="main_section">
+    <article>
+      <p>Hello HTML5 World</p>
+      <p>Hello Java World</p>
+      <p>Hello Javascript World</p>
+    </article>
+    <figure id="map_image">
+
+    </figure>
+  </section>
 </body>
 
 </html>
