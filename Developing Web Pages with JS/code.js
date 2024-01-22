@@ -1,82 +1,31 @@
 $(document).ready(function () {
-  for (var i = 0; i < 200; i++) {
-    var output = '';
-    output += 'rotateY(' + i * 20 + 'deg)';
-    output += 'translateY(' + i * 5 + 'px)';
-    output += 'translateZ(' + 310 + 'px)';
+  $('#main_navigation a').click(function () {
+    $('#main_navigation a').click(function () {
+      var target = $(this).attr('data-target');
 
-    var isMouseDone = false;
-    var originalPosition = {
-      x: 0,
-      y: 0
-    };
-    var originalRotation = {
-      x: 0,
-      y: 0,
-      z: 0
-    };
-    var originalScale = 1.0;
+      $(':not([data-name=' + target + '])').removeClass('active');
+      $('[data-name=' + target + ']').addClass('active');
+    });
 
-    var createGalleryPosition = function () {
-      var output = '';
-      output += 'translateY(' + originalPosition.y + 'px) ';
-      output += 'rotateY(' + originalRotation.y + 'deg) ';
-      return output;
-    };
-
-    var createViewportPosition = function () {
-      var output = '';
-      output += 'rotateX(-10deg)';
-      output += 'scaleX(' + originalScale + ') ';
-      output += 'scaleY(' + originalScale + ') ';
-      return output;
-    };
-
-    $('<div></div>').addClass('image').css({
-      'width': 100,
-      'height': 60,
-      'transform': output
-    }).appendTo('#image_gallery');
-
-  }
-
-  $(window).on({
-    mousedown: function (event) {
-      isMouseDown = true;
-
-      originalPosition.x = event.screenX;
-
-      event.preventDefault();
-    },
-    mouseup: function (event) {
-      isMouseDown = false;
-
-      event.preventDefault();
-    },
-    mousemove: function (event) {
-      if (isMouseDown) {
-        distance = event.screenX - originalPosition.x;
-        originalRotation.y += distance;
-        originalPosition.y += distance / 3;
-
-        $('#image_gallery').css('transform', createGalleryPosition());
-        $('#viewport').css('transform', createViewportPosition());
-
-        originalPosition.x = event.screenX;
+    var currentPosition = 1;
+    $('#character > a:nth-child(1)').click(function () {
+      currentPosition -= 1;
+      if (currentPosition < 1) {
+        currentPosition = 3;
       }
-      event.preventDefault();
-    },
-    mousewheel: function (event) {
-      var changeScale = originalScale + event.originalEvent.wheelDeltaY / 1000;
 
-      if (changeScale > 0) {
-        originalScale = changeScale;
+      $('article').removeClass('show');
+      $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+    });
 
-        $('#image_gallery').css('transform', createGalleryPosition());
-        $('#viewport').css('transform', createViewportPosition());
-
-        event.preventDefault();
+    $('#character > a:nth-child(2)').click(function () {
+      currentPosition += 1;
+      if (currentPosition > 3) {
+        currentPosition = 1;
       }
-    }
+
+      $('article').removeClass('show');
+      $('article:nth-of-type(' + currentPosition + ')').addClass('show');
+    });
   });
 });
